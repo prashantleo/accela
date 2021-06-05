@@ -1,0 +1,26 @@
+<nav mat-tab-nav-bar class="mat-elevation-z8" >
+  <a
+    mat-tab-link
+    *ngFor="let link of navLinks"
+    routerLink="{{ link.location }}"
+    routerLinkActive
+    #rla="routerLinkActive"
+    [active]="rla.isActive"
+  >
+
+
+    <span>{{ link.label | uppercase }}</span>
+  </a>
+</nav>
+
+
+
+<div>
+  <mat-card *ngFor="let e of otherpost" class="otherposts">
+
+      <mat-card-title>{{e.title}}</mat-card-title>
+      <mat-card-subtitle>{{e.body}}</mat-card-subtitle>
+      <mat-card-subtitle  class="author">Created By : {{e.userName}}</mat-card-subtitle>
+  </mat-card>
+  </div>
+

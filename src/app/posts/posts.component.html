@@ -1,0 +1,53 @@
+
+<nav  mat-tab-nav-bar class="mat-elevation-z8" >
+  <a
+    mat-tab-link
+    *ngFor="let link of navLinks"
+    routerLink="{{ link.location }}"
+    routerLinkActive
+    #rla="routerLinkActive"
+    [active]="rla.isActive"
+  >
+
+    <span>{{ link.label | uppercase }}</span>
+  </a>
+</nav>
+
+<div *ngIf="appState == 'default'">
+  <mat-card >
+
+
+    <form  fxLayout="column" (submit)="addFeed()" >
+      <mat-form-field >
+        <mat-label>Title</mat-label>
+        <input matInput placeholder="Title" [(ngModel)]="title" name="title">
+      </mat-form-field>
+
+      <mat-form-field >
+        <mat-label>Body</mat-label>
+        <input matInput placeholder="Body" [(ngModel)]="body" name="body">
+      </mat-form-field>
+      <button class="submit"   mat-raised-button type="submit">Create Your Post</button>
+    </form>
+  </mat-card>
+</div>
+
+
+
+<div>
+  <mat-card *ngFor="let e of feed;">
+
+      <mat-card-title>{{e.title}}</mat-card-title>
+      <mat-card-subtitle>{{e.body}}</mat-card-subtitle>
+  </mat-card>
+  </div>
+
+
+
+<div>
+<mat-card *ngFor="let e of post;">
+
+    <mat-card-title>{{e.title}}</mat-card-title>
+    <mat-card-subtitle>{{e.body}}</mat-card-subtitle>
+</mat-card>
+</div>
